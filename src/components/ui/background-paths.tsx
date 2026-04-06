@@ -26,16 +26,16 @@ function FloatingPaths({ position }: { position: number }) {
                         stroke="currentColor"
                         strokeWidth={path.width}
                         strokeOpacity={0.1 + path.id * 0.02}
-                        initial={{ pathLength: 0.3, opacity: 0.6 }}
+                        initial={{ pathLength: 0, opacity: 0 }}
                         animate={{
-                            pathLength: 1,
-                            opacity: [0.3, 0.6, 0.3],
-                            pathOffset: [0, 1, 0],
+                            pathLength: [0, 1],
+                            opacity: [0.2, 0.6, 0.2],
                         }}
                         transition={{
-                            duration: 20 + Math.random() * 10,
+                            duration: 15 + Math.random() * 10,
                             repeat: Number.POSITIVE_INFINITY,
-                            ease: "linear",
+                            ease: "easeInOut",
+                            repeatType: "reverse",
                         }}
                     />
                 ))}
@@ -58,7 +58,7 @@ export function BackgroundPaths({ title }: { title: string }) {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1.5 }}
+                    transition={{ duration: 0.8 }}
                     className="max-w-4xl mx-auto flex flex-col items-center"
                 >
                     <div className="mb-6 inline-flex border border-neutral-200 bg-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest text-neutral-500 shadow-sm">
@@ -73,7 +73,7 @@ export function BackgroundPaths({ title }: { title: string }) {
                                         key={`${wordIndex}-${letterIndex}`}
                                         initial={{ y: 50, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
-                                        transition={{ delay: wordIndex * 0.1 + letterIndex * 0.02, type: "spring", stiffness: 100, damping: 20 }}
+                                        transition={{ delay: wordIndex * 0.05 + letterIndex * 0.015, type: "spring", stiffness: 100, damping: 20 }}
                                         className="inline-block"
                                     >
                                         {letter}
@@ -83,19 +83,19 @@ export function BackgroundPaths({ title }: { title: string }) {
                         ))}
                     </h1>
 
-                    <motion.p 
+                    <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8, duration: 0.8 }}
+                        transition={{ delay: 0.3, duration: 0.6 }}
                         className="mt-2 mb-12 text-lg md:text-xl text-neutral-500 max-w-2xl font-normal leading-relaxed"
                     >
                         Criamos sites rápidos, modernos e focados em resultados. Sem excessos, projetados para destacar a sua marca e atrair os clientes certos para o seu negócio 24 horas por dia.
                     </motion.p>
 
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1, duration: 0.8 }}
+                        transition={{ delay: 0.5, duration: 0.6 }}
                         className="flex flex-col sm:flex-row gap-4 items-center justify-center font-sans"
                     >
                         <Button

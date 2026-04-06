@@ -138,7 +138,7 @@ function Feature({ icon, title, desc }: { icon: any, title: string, desc: string
 
 function ServiceCard({ title, price, features, highlight }: { title: string, price: string, features: string[], highlight?: boolean }) {
   return (
-    <div className={`p-10 rounded-[2rem] transition-all hover:shadow-[0_8px_40px_rgb(0,0,0,0.06)] border ${highlight ? 'border-neutral-200 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.03)]' : 'border-neutral-100 bg-neutral-50'} flex flex-col`}>
+    <div className={`p-10 rounded-[2rem] transition-all duration-500 hover:-translate-y-1 hover:shadow-xl border ${highlight ? 'border-neutral-200 bg-white shadow-md' : 'border-neutral-100 bg-neutral-50 shadow-sm'} flex flex-col`}>
       <span className="text-sm font-semibold tracking-wider text-blue-600 uppercase mb-4 block">{price}</span>
       <h3 className="text-2xl font-bold mb-8 tracking-tighter text-neutral-900">{title}</h3>
       <ul className="space-y-5 mb-12 flex-1">
@@ -158,8 +158,8 @@ function ServiceCard({ title, price, features, highlight }: { title: string, pri
 
 function Step({ title, desc, icon }: { title: string, desc: string, icon: any }) {
   return (
-    <div className="flex flex-col items-center justify-center text-center group">
-      <div className="w-20 h-20 bg-neutral-900 rounded-full flex items-center justify-center text-blue-500 mb-6 border border-neutral-800 group-hover:bg-white group-hover:text-blue-600 transition-all">
+    <div className="flex flex-col items-center justify-center text-center">
+      <div className="w-20 h-20 bg-neutral-900 rounded-full flex items-center justify-center text-blue-500 mb-6 border border-neutral-800 hover:bg-white hover:text-blue-600 hover:scale-110 transition-all cursor-pointer shadow-lg duration-300">
         {React.cloneElement(icon, { size: 32, strokeWidth: 1.5 })}
       </div>
       <h3 className="text-xl font-bold mb-3 tracking-tighter text-white">{title}</h3>
@@ -170,14 +170,14 @@ function Step({ title, desc, icon }: { title: string, desc: string, icon: any })
 
 function PricingCard({ title, subtitle, price, features, highlight }: { title: string, subtitle: string, price: string, features: string[], highlight?: boolean }) {
   return (
-    <div className={`relative p-10 md:p-12 rounded-[2rem] transition-all duration-500 hover:-translate-y-3 border ${highlight ? 'border-neutral-950 bg-neutral-950 text-white scale-100 lg:scale-105 shadow-2xl hover:shadow-[0_30px_60px_rgba(0,0,0,0.4)] z-10' : 'border-neutral-200 bg-white text-neutral-900 hover:shadow-2xl'} flex flex-col`}>
+    <div className={`relative p-10 md:p-12 rounded-[2rem] transition-all duration-500 hover:-translate-y-1 border ${highlight ? 'border-neutral-950 bg-neutral-950 text-white scale-100 lg:scale-105 shadow-xl hover:shadow-2xl z-10' : 'border-neutral-200 bg-white text-neutral-900 hover:shadow-xl'} flex flex-col`}>
       <div className="mb-8">
         <h3 className="text-2xl font-bold tracking-tighter mb-2">{title}</h3>
         <p className={`text-sm ${highlight ? 'text-neutral-400' : 'text-neutral-500'}`}>{subtitle}</p>
       </div>
       <div className="mb-10 flex items-start">
-        <span className={`text-xl font-medium mt-3 mr-2 ${highlight ? 'text-neutral-500' : 'text-neutral-400'}`}>R$</span>
-        <span className="text-6xl md:text-7xl font-light font-mono tracking-tighter">{price}</span>
+        <span className={`text-xl font-medium mt-1 mr-1 ${highlight ? 'text-neutral-400' : 'text-neutral-400'}`}>R$</span>
+        <span className={`text-5xl md:text-6xl font-semibold tracking-tight ${highlight ? 'text-white' : 'text-neutral-900'}`}>{price}</span>
       </div>
       <ul className="space-y-5 mb-14 flex-1">
         {features.map((f, i) => (
