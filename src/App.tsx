@@ -170,14 +170,14 @@ function Step({ title, desc, icon }: { title: string, desc: string, icon: any })
 
 function PricingCard({ title, subtitle, price, features, highlight }: { title: string, subtitle: string, price: string, features: string[], highlight?: boolean }) {
   return (
-    <div className={`relative p-10 md:p-12 rounded-[2rem] transition-all border ${highlight ? 'border-neutral-950 bg-neutral-950 text-white scale-100 lg:scale-105 shadow-2xl z-10' : 'border-neutral-200 bg-white text-neutral-900'} flex flex-col`}>
+    <div className={`relative p-10 md:p-12 rounded-[2rem] transition-all duration-500 hover:-translate-y-3 border ${highlight ? 'border-neutral-950 bg-neutral-950 text-white scale-100 lg:scale-105 shadow-2xl hover:shadow-[0_30px_60px_rgba(0,0,0,0.4)] z-10' : 'border-neutral-200 bg-white text-neutral-900 hover:shadow-2xl'} flex flex-col`}>
       <div className="mb-8">
         <h3 className="text-2xl font-bold tracking-tighter mb-2">{title}</h3>
         <p className={`text-sm ${highlight ? 'text-neutral-400' : 'text-neutral-500'}`}>{subtitle}</p>
       </div>
-      <div className="mb-10">
-        <span className="text-lg font-semibold align-top mr-1">R$</span>
-        <span className="text-5xl font-black tracking-tighter">{price}</span>
+      <div className="mb-10 flex items-start">
+        <span className={`text-xl font-medium mt-3 mr-2 ${highlight ? 'text-neutral-500' : 'text-neutral-400'}`}>R$</span>
+        <span className="text-6xl md:text-7xl font-light font-mono tracking-tighter">{price}</span>
       </div>
       <ul className="space-y-5 mb-14 flex-1">
         {features.map((f, i) => (
@@ -187,8 +187,8 @@ function PricingCard({ title, subtitle, price, features, highlight }: { title: s
           </li>
         ))}
       </ul>
-      <Button className={`w-full py-7 text-sm font-bold uppercase tracking-wider rounded-2xl cursor-pointer ${highlight ? 'bg-blue-600 hover:bg-blue-700 text-white border-none' : 'bg-white hover:bg-neutral-50 text-neutral-900 border border-neutral-200 shadow-sm'}`} variant={highlight ? "default" : "outline"} onClick={() => window.open("https://wa.me/5511999999999", "_blank")}>
-        Selecionar
+      <Button className={`w-full py-7 text-sm font-bold uppercase tracking-wider rounded-2xl cursor-pointer transition-transform active:scale-95 ${highlight ? 'bg-white hover:bg-neutral-200 text-neutral-950' : 'bg-neutral-950 hover:bg-neutral-800 text-white'}`} onClick={() => window.open("https://wa.me/5511999999999", "_blank")}>
+        Selecionar plano
       </Button>
     </div>
   )
